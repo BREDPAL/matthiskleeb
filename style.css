@@ -30,7 +30,7 @@ nav {
     padding: 1.5rem 2rem;
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: center;
 }
 
 .nav-right {
