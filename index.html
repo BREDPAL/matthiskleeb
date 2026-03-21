@@ -147,8 +147,9 @@
 
     document.getElementById('heroImg').src = stories[storyIndex].img;
 
-    function cycleStory() {
-        storyIndex = (storyIndex + 1) % stories.length;
+    function cycleStory(dir) {
+        dir = dir || 1;
+        storyIndex = (storyIndex + dir + stories.length) % stories.length;
         const img = document.getElementById('heroImg');
         img.style.opacity = '0';
         img.style.transition = 'opacity 0.3s';
@@ -161,6 +162,11 @@
         });
     }
 
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') cycleStory(1);
+        if (e.key === 'ArrowLeft') cycleStory(-1);
+        if (e.key === 'Enter') window.location.href = stories[storyIndex].url;
+    });
 
 </script>
 <script src="shared.js"></script>
