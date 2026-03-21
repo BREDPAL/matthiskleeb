@@ -1,3 +1,16 @@
 .DS_Store
 venv/
-bilder/*/[0-9][0-9].jpg
+# Exclude original images — only web/ and full/ versions needed
+bilder/Stories/*/[0-9]*.jpg
+bilder/Stories/*/[0-9]*.jpeg
+bilder/Stories/*/[A-Z]*.jpg
+bilder/Stories/*/[A-Z]*.jpeg
+bilder/Portraits/[0-9]*.jpg
+bilder/Portraits/[0-9]*.jpeg
+bilder/Portraits/[0-9]*.png
+bilder/Portraits/*.avif
+bilder/Singles/*.jpg
+bilder/Matthis/*.jpg
+# Keep web/ and full/ subdirs
+!bilder/**/web/
+!bilder/**/full/

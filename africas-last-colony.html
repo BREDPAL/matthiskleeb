@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Africa’s Last Colony — Matthis Kleeb</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="index.html" class="logo">Matthis Kleeb</a>
+        <button class="hamburger" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="nav-right">
+        <ul class="nav-links" id="navLinks">
+            <li><a href="portfolio.html" class="active">Stories</a></li>
+            <li><a href="portraits.html">Portraits</a></li>
+            <li><a href="singles.html">Singles</a></li>
+            <li><a href="kontakt.html">Contact</a></li>
+        </ul>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <div class="gallery">
+        <div class="gallery-item" onclick="openLightbox(0)"><img src="bilder/Stories/Africa’s Last Colony/web/Cewe-photoworld_Matthis_Kleeb_01.jpg" alt="Africa’s Last Colony 1"></div>
+        <div class="gallery-item" onclick="openLightbox(1)"><img src="bilder/Stories/Africa’s Last Colony/web/Cewe-photoworld_Matthis_Kleeb_02.jpg" alt="Africa’s Last Colony 2"></div>
+        <div class="gallery-item" onclick="openLightbox(2)"><img src="bilder/Stories/Africa’s Last Colony/web/Cewe-photoworld_Matthis_Kleeb_03.jpg" alt="Africa’s Last Colony 3"></div>
+        <div class="gallery-item" onclick="openLightbox(3)"><img src="bilder/Stories/Africa’s Last Colony/web/Cewe-photoworld_Matthis_Kleeb_04.jpg" alt="Africa’s Last Colony 4"></div>
+        <div class="gallery-item" onclick="openLightbox(4)"><img src="bilder/Stories/Africa’s Last Colony/web/Cewe-photoworld_Matthis_Kleeb_05.jpg" alt="Africa’s Last Colony 5"></div>
+        <div class="gallery-item" onclick="openLightbox(5)"><img src="bilder/Stories/Africa’s Last Colony/web/Cewe-photoworld_Matthis_Kleeb_06.jpg" alt="Africa’s Last Colony 6"></div>
+        <div class="gallery-item" onclick="openLightbox(6)"><img src="bilder/Stories/Africa’s Last Colony/web/Cewe-photoworld_Matthis_Kleeb_07.jpg" alt="Africa’s Last Colony 7"></div>
+        <div class="gallery-item" onclick="openLightbox(7)"><img src="bilder/Stories/Africa’s Last Colony/web/Cewe-photoworld_Matthis_Kleeb_08.jpg" alt="Africa’s Last Colony 8"></div>
+        <div class="gallery-item" onclick="openLightbox(8)"><img src="bilder/Stories/Africa’s Last Colony/web/Cewe-photoworld_Matthis_Kleeb_09.jpg" alt="Africa’s Last Colony 9"></div>
+        <div class="gallery-item" onclick="openLightbox(9)"><img src="bilder/Stories/Africa’s Last Colony/web/Cewe-photoworld_Matthis_Kleeb_10.jpg" alt="Africa’s Last Colony 10"></div>
+        <div class="gallery-item" onclick="openLightbox(10)"><img src="bilder/Stories/Africa’s Last Colony/web/Cewe-photoworld_Matthis_Kleeb_11.jpg" alt="Africa’s Last Colony 11"></div>
+        <div class="gallery-item" onclick="openLightbox(11)"><img src="bilder/Stories/Africa’s Last Colony/web/Cewe-photoworld_Matthis_Kleeb_12.jpg" alt="Africa’s Last Colony 12"></div>
+        <div class="gallery-item" onclick="openLightbox(12)"><img src="bilder/Stories/Africa’s Last Colony/web/Cewe-photoworld_Matthis_Kleeb_13.jpg" alt="Africa’s Last Colony 13"></div>
+        <div class="gallery-item" onclick="openLightbox(13)"><img src="bilder/Stories/Africa’s Last Colony/web/Cewe-photoworld_Matthis_Kleeb_14.jpg" alt="Africa’s Last Colony 14"></div>
+        <div class="gallery-item" onclick="openLightbox(14)"><img src="bilder/Stories/Africa’s Last Colony/web/Cewe-photoworld_Matthis_Kleeb_15.jpg" alt="Africa’s Last Colony 15"></div>
+        <div class="gallery-item" onclick="openLightbox(15)"><img src="bilder/Stories/Africa’s Last Colony/web/Cewe-photoworld_Matthis_Kleeb_16.jpg" alt="Africa’s Last Colony 16"></div>
+        <div class="gallery-item" onclick="openLightbox(16)"><img src="bilder/Stories/Africa’s Last Colony/web/Cewe-photoworld_Matthis_Kleeb_17.jpg" alt="Africa’s Last Colony 17"></div>
+        <div class="gallery-item" onclick="openLightbox(17)"><img src="bilder/Stories/Africa’s Last Colony/web/Fotofestival_19.jpg" alt="Africa’s Last Colony 18"></div>
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2026 Matthis Kleeb. Alle rettigheter reservert.</p>
+    <p><a href="https://instagram.com">Instagram</a></p>
+</footer>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+    <div class="lightbox-top">
+        <button class="lightbox-fullscreen" onclick="toggleFullscreen(event)" title="Fullskjerm">&#x26F6;</button>
+        <button class="lightbox-close" onclick="closeLightbox(event)">&times;</button>
+    </div>
+    <button class="lightbox-nav lightbox-prev" onclick="navigate(event, -1)">&#8249;</button>
+    <img id="lightboxImg" src="" alt="">
+    <button class="lightbox-nav lightbox-next" onclick="navigate(event, 1)">&#8250;</button>
+    <div class="lightbox-counter" id="lightboxCounter"></div>
+</div>
+
+<script src="gallery.js"></script>
+<script src="shared.js"></script>
+
+</body>
+</html>

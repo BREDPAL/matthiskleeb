@@ -29,9 +29,23 @@
 
 <main>
     <div class="gallery">
-        <!-- Placeholder — legg til portrettbilder her -->
+        <div class="gallery-item" onclick="openLightbox(0)"><img src="bilder/Portraits/web/01.jpg" alt="Portraits 1"></div>
+        <div class="gallery-item" onclick="openLightbox(1)"><img src="bilder/Portraits/web/02.jpg" alt="Portraits 2"></div>
+        <div class="gallery-item" onclick="openLightbox(2)"><img src="bilder/Portraits/web/03.jpg" alt="Portraits 3"></div>
+        <div class="gallery-item" onclick="openLightbox(3)"><img src="bilder/Portraits/web/04.jpg" alt="Portraits 4"></div>
+        <div class="gallery-item" onclick="openLightbox(4)"><img src="bilder/Portraits/web/05.jpg" alt="Portraits 5"></div>
+        <div class="gallery-item" onclick="openLightbox(5)"><img src="bilder/Portraits/web/06.jpg.jpg" alt="Portraits 6"></div>
+        <div class="gallery-item" onclick="openLightbox(6)"><img src="bilder/Portraits/web/07.jpg" alt="Portraits 7"></div>
+        <div class="gallery-item" onclick="openLightbox(7)"><img src="bilder/Portraits/web/08.jpg" alt="Portraits 8"></div>
+        <div class="gallery-item" onclick="openLightbox(8)"><img src="bilder/Portraits/web/09.jpg" alt="Portraits 9"></div>
+        <div class="gallery-item" onclick="openLightbox(9)"><img src="bilder/Portraits/web/10.jpg" alt="Portraits 10"></div>
+        <div class="gallery-item" onclick="openLightbox(10)"><img src="bilder/Portraits/web/11.jpg" alt="Portraits 11"></div>
+        <div class="gallery-item" onclick="openLightbox(11)"><img src="bilder/Portraits/web/12.jpg" alt="Portraits 12"></div>
+        <div class="gallery-item" onclick="openLightbox(12)"><img src="bilder/Portraits/web/13.jpg" alt="Portraits 13"></div>
+        <div class="gallery-item" onclick="openLightbox(13)"><img src="bilder/Portraits/web/14.jpg" alt="Portraits 14"></div>
+        <div class="gallery-item" onclick="openLightbox(14)"><img src="bilder/Portraits/web/15.jpg" alt="Portraits 15"></div>
+        <div class="gallery-item" onclick="openLightbox(15)"><img src="bilder/Portraits/web/16.jpg" alt="Portraits 16"></div>
     </div>
-    <p style="text-align: center; color: #aaa; padding: 4rem 0; font-size: 1.1rem;">Kommer snart</p>
 </main>
 
 <footer>
@@ -39,6 +53,19 @@
     <p><a href="https://instagram.com">Instagram</a></p>
 </footer>
 
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+    <div class="lightbox-top">
+        <button class="lightbox-fullscreen" onclick="toggleFullscreen(event)" title="Fullskjerm">&#x26F6;</button>
+        <button class="lightbox-close" onclick="closeLightbox(event)">&times;</button>
+    </div>
+    <button class="lightbox-nav lightbox-prev" onclick="navigate(event, -1)">&#8249;</button>
+    <img id="lightboxImg" src="" alt="">
+    <button class="lightbox-nav lightbox-next" onclick="navigate(event, 1)">&#8250;</button>
+    <div class="lightbox-counter" id="lightboxCounter"></div>
+</div>
+
+<script src="gallery.js"></script>
 <script src="shared.js"></script>
+
 </body>
 </html>
