@@ -30,6 +30,16 @@ function updateLightbox() {
     counter.textContent = (currentIndex + 1) + ' / ' + images.length;
 }
 
+// Fullscreen toggle inside lightbox
+function toggleFullscreen(e) {
+    e.stopPropagation();
+    if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+    } else {
+        document.exitFullscreen().catch(() => {});
+    }
+}
+
 // Click on lightbox image = next image
 lightboxImg.addEventListener('click', (e) => {
     e.stopPropagation();

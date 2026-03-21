@@ -23,7 +23,7 @@
             <li><a href="singles.html">Singles</a></li>
             <li><a href="kontakt.html">Contact</a></li>
         </ul>
-        <button class="fullscreen-btn" onclick="openLightbox(0)" title="Fullskjerm">⛶</button>
+        
         </div>
     </nav>
 </header>
@@ -53,7 +53,10 @@
 </footer>
 
 <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
-    <button class="lightbox-close" onclick="closeLightbox(event)">&times;</button>
+    <div class="lightbox-top">
+        <button class="lightbox-fullscreen" onclick="toggleFullscreen(event)" title="Fullskjerm">⛶</button>
+        <button class="lightbox-close" onclick="closeLightbox(event)">&times;</button>
+    </div>
     <button class="lightbox-nav lightbox-prev" onclick="navigate(event, -1)">&#8249;</button>
     <img id="lightboxImg" src="" alt="">
     <button class="lightbox-nav lightbox-next" onclick="navigate(event, 1)">&#8250;</button>

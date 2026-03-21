@@ -189,15 +189,33 @@ main {
     object-fit: contain;
 }
 
-.lightbox-close {
+.lightbox-top {
     position: fixed;
     top: 1.5rem;
     right: 2rem;
+    z-index: 201;
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
+}
+
+.lightbox-fullscreen {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1.3rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    transition: color 0.2s;
+    font-family: inherit;
+}
+
+.lightbox-fullscreen:hover { color: #fff; }
+
+.lightbox-close {
     color: #fff;
     font-size: 1.8rem;
     font-weight: 300;
     cursor: pointer;
-    z-index: 201;
     background: none;
     border: none;
     font-family: inherit;
