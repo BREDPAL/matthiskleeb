@@ -1,4 +1,3 @@
 .DS_Store
 venv/
-# Kun web/ og full/ skal med — originaler ekskluderes
 bilder/*/[0-9][0-9].jpg
