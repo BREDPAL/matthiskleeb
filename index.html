@@ -76,6 +76,7 @@
         .logo { color: #fff; }
         .nav-links a { color: #fff; }
         .hamburger span { background: #fff; }
+        .fullscreen-btn { color: #fff; }
         .story-progress .dot { background: rgba(255, 255, 255, 0.3); }
         .story-progress .dot.active { background: rgba(255, 255, 255, 0.9); }
         footer { display: none; }
@@ -106,6 +107,7 @@
             <li><a href="singles.html">Singles</a></li>
             <li><a href="kontakt.html">Contact</a></li>
         </ul>
+        <button class="fullscreen-btn" onclick="toggleFullscreen()" title="Fullskjerm">⛶</button>
     </nav>
 </header>
 
@@ -154,6 +156,14 @@
         document.querySelectorAll('.story-progress .dot').forEach((d, i) => {
             d.className = 'dot' + (i === storyIndex ? ' active' : '');
         });
+    }
+
+    function toggleFullscreen() {
+        if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen();
+        } else {
+            document.exitFullscreen();
+        }
     }
 
     function toggleMenu() {

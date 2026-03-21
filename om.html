@@ -22,6 +22,7 @@
             <li><a href="singles.html">Singles</a></li>
             <li><a href="kontakt.html">Contact</a></li>
         </ul>
+        <button class="fullscreen-btn" onclick="toggleFullscreen()" title="Fullskjerm">⛶</button>
     </nav>
 </header>
 
@@ -60,6 +61,14 @@
 </footer>
 
 <script>
+    function toggleFullscreen() {
+        if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen();
+        } else {
+            document.exitFullscreen();
+        }
+    }
+
     function toggleMenu() {
         document.getElementById('navLinks').classList.toggle('open');
         document.querySelector('.hamburger').classList.toggle('open');

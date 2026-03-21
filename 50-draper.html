@@ -22,6 +22,7 @@
             <li><a href="singles.html">Singles</a></li>
             <li><a href="kontakt.html">Contact</a></li>
         </ul>
+        <button class="fullscreen-btn" onclick="toggleFullscreen()" title="Fullskjerm">⛶</button>
     </nav>
 </header>
 
@@ -121,6 +122,14 @@
         if (e.key === 'ArrowRight') { currentIndex = (currentIndex + 1) % images.length; updateLightbox(); }
         if (e.key === 'ArrowLeft') { currentIndex = (currentIndex - 1 + images.length) % images.length; updateLightbox(); }
     });
+
+    function toggleFullscreen() {
+        if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen();
+        } else {
+            document.exitFullscreen();
+        }
+    }
 
     function toggleMenu() {
         document.getElementById('navLinks').classList.toggle('open');
