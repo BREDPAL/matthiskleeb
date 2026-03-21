@@ -58,29 +58,6 @@
     <p><a href="https://instagram.com">Instagram</a></p>
 </footer>
 
-<script>
-    function toggleFullscreen() {
-        document.body.classList.toggle("immersive");
-        sessionStorage.setItem("immersive", document.body.classList.contains("immersive"));
-        if (!document.fullscreenElement) {
-            document.documentElement.requestFullscreen().catch(() => {});
-        } else if (document.body.classList.contains("immersive") === false) {
-            document.exitFullscreen().catch(() => {});
-        }
-        if (!document.fullscreenElement) {
-            document.documentElement.requestFullscreen();
-        } else {
-            document.exitFullscreen();
-        }
-    }
-
-    function toggleMenu() {
-        document.getElementById('navLinks').classList.toggle('open');
-        document.querySelector('.hamburger').classList.toggle('open');
-    }
-</script>
-
-<script>
-<script>if(sessionStorage.getItem("immersive")==="true")document.body.classList.add("immersive");</script>
+<script src="shared.js"></script>
 </body>
 </html>

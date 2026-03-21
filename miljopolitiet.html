@@ -18,12 +18,13 @@
         </button>
         <div class="nav-right">
         <ul class="nav-links" id="navLinks">
-            <li><a href="portfolio.html">Stories</a></li>
+            <li><a href="portfolio.html" class="active">Stories</a></li>
             <li><a href="portraits.html">Portraits</a></li>
             <li><a href="singles.html">Singles</a></li>
             <li><a href="kontakt.html">Contact</a></li>
         </ul>
-        <button class="fullscreen-btn" onclick="toggleFullscreen()" title="Fullskjerm">⛶</button></div>
+        <button class="fullscreen-btn" onclick="openLightbox(0)" title="Fullskjerm">⛶</button>
+        </div>
     </nav>
 </header>
 
@@ -43,8 +44,7 @@
         <div class="gallery-item" onclick="openLightbox(11)"><img src="bilder/Miljøpolitiet i Brasil/web/12.jpg" alt="Miljøpolitiet i Brasil 12"></div>
         <div class="gallery-item" onclick="openLightbox(12)"><img src="bilder/Miljøpolitiet i Brasil/web/13.jpg" alt="Miljøpolitiet i Brasil 13"></div>
         <div class="gallery-item" onclick="openLightbox(13)"><img src="bilder/Miljøpolitiet i Brasil/web/14.jpg" alt="Miljøpolitiet i Brasil 14"></div>
-        <div class="gallery-item" onclick="openLightbox(14)"><img src="bilder/Miljøpolitiet i Brasil/web/15.jpg" alt="Miljøpolitiet i Brasil 15"></div>
-    </div>
+        <div class="gallery-item" onclick="openLightbox(14)"><img src="bilder/Miljøpolitiet i Brasil/web/15.jpg" alt="Miljøpolitiet i Brasil 15"></div>    </div>
 </main>
 
 <footer>
@@ -60,68 +60,8 @@
     <div class="lightbox-counter" id="lightboxCounter"></div>
 </div>
 
-<script>
-    const images = document.querySelectorAll('.gallery-item img');
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightboxImg');
-    const counter = document.getElementById('lightboxCounter');
-    let currentIndex = 0;
+<script src="gallery.js"></script>
+<script src="shared.js"></script>
 
-    function openLightbox(index) {
-        currentIndex = index;
-        updateLightbox();
-        lightbox.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closeLightbox(e) {
-        if (e.target === lightbox || e.target.classList.contains('lightbox-close')) {
-            lightbox.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-    }
-
-    function navigate(e, dir) {
-        e.stopPropagation();
-        currentIndex = (currentIndex + dir + images.length) % images.length;
-        updateLightbox();
-    }
-
-    function updateLightbox() {
-        const src = images[currentIndex].src.replace('/web/', '/full/');
-        lightboxImg.src = src;
-        counter.textContent = (currentIndex + 1) + ' / ' + images.length;
-    }
-
-    document.addEventListener('keydown', (e) => {
-        if (!lightbox.classList.contains('active')) return;
-        if (e.key === 'Escape') { lightbox.classList.remove('active'); document.body.style.overflow = ''; }
-        if (e.key === 'ArrowRight') { currentIndex = (currentIndex + 1) % images.length; updateLightbox(); }
-        if (e.key === 'ArrowLeft') { currentIndex = (currentIndex - 1 + images.length) % images.length; updateLightbox(); }
-    });
-
-    function toggleFullscreen() {
-        document.body.classList.toggle("immersive");
-        sessionStorage.setItem("immersive", document.body.classList.contains("immersive"));
-        if (!document.fullscreenElement) {
-            document.documentElement.requestFullscreen().catch(() => {});
-        } else if (document.body.classList.contains("immersive") === false) {
-            document.exitFullscreen().catch(() => {});
-        }
-        if (!document.fullscreenElement) {
-            document.documentElement.requestFullscreen();
-        } else {
-            document.exitFullscreen();
-        }
-    }
-
-    function toggleMenu() {
-        document.getElementById('navLinks').classList.toggle('open');
-        document.querySelector('.hamburger').classList.toggle('open');
-    }
-</script>
-
-<script>
-<script>if(sessionStorage.getItem("immersive")==="true")document.body.classList.add("immersive");</script>
 </body>
 </html>
