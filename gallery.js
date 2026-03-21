@@ -9,17 +9,12 @@ function openLightbox(index) {
     updateLightbox();
     lightbox.classList.add('active');
     document.body.style.overflow = 'hidden';
-    // Enter real fullscreen — allowed because this is a user click
-    document.documentElement.requestFullscreen().catch(() => {});
 }
 
 function closeLightbox(e) {
     if (e.target === lightbox || e.target.classList.contains('lightbox-close')) {
         lightbox.classList.remove('active');
         document.body.style.overflow = '';
-        if (document.fullscreenElement) {
-            document.exitFullscreen().catch(() => {});
-        }
     }
 }
 
@@ -35,21 +30,36 @@ function updateLightbox() {
     counter.textContent = (currentIndex + 1) + ' / ' + images.length;
 }
 
-document.addEventListener('keydown', (e) => {
-    if (!lightbox.classList.contains('active')) return;
-    if (e.key === 'Escape') {
-        lightbox.classList.remove('active');
-        document.body.style.overflow = '';
-        // Fullscreen exits automatically with Escape
-    }
-    if (e.key === 'ArrowRight') { currentIndex = (currentIndex + 1) % images.length; updateLightbox(); }
-    if (e.key === 'ArrowLeft') { currentIndex = (currentIndex - 1 + images.length) % images.length; updateLightbox(); }
+// Click on lightbox image = next image
+lightboxImg.addEventListener('click', (e) => {
+    e.stopPropagation();
+    currentIndex = (currentIndex + 1) % images.length;
+    updateLightbox();
 });
 
-// Exit lightbox when exiting fullscreen (e.g. via Escape)
-document.addEventListener('fullscreenchange', () => {
-    if (!document.fullscreenElement && lightbox.classList.contains('active')) {
-        lightbox.classList.remove('active');
-        document.body.style.overflow = '';
+// Change cursor on lightbox image to indicate clickable
+lightboxImg.style.cursor = 'pointer';
+
+document.addEventListener('keydown', (e) => {
+    // In lightbox: ESC closes lightbox
+    if (lightbox.classList.contains('active')) {
+        if (e.key === 'Escape') {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        if (e.key === 'ArrowRight' || e.key === ' ') {
+            e.preventDefault();
+            currentIndex = (currentIndex + 1) % images.length;
+            updateLightbox();
+        }
+        if (e.key === 'ArrowLeft') {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateLightbox();
+        }
+        return;
+    }
+    // Not in lightbox: ESC goes back to Stories
+    if (e.key === 'Escape') {
+        window.location.href = 'portfolio.html';
     }
 });
