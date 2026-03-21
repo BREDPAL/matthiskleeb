@@ -33,6 +33,12 @@ nav {
     align-items: baseline;
 }
 
+.nav-right {
+    display: flex;
+    align-items: baseline;
+    gap: 2.5rem;
+}
+
 .logo-wrap {
     display: flex;
     flex-direction: column;
@@ -91,14 +97,14 @@ nav {
     border: none;
     cursor: pointer;
     color: #1a1a1a;
-    font-size: 1.1rem;
-    padding: 4px;
-    opacity: 0.4;
+    font-size: 1rem;
+    padding: 0;
+    opacity: 0.3;
     transition: opacity 0.2s;
     line-height: 1;
 }
 
-.fullscreen-btn:hover { opacity: 1; }
+.fullscreen-btn:hover { opacity: 0.8; }
 
 /* --- HAMBURGER --- */
 .hamburger {
