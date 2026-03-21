@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matthis Kleeb — Fotograf</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Playfair+Display:wght@300;400;500&family=Libre+Baskerville:wght@400;700&family=EB+Garamond:wght@400;500&family=Lora:wght@400;500&family=Crimson+Pro:wght@300;400&family=DM+Serif+Display&family=Sorts+Mill+Goudy&family=Bodoni+Moda:wght@400;500&family=Instrument+Serif&family=Fraunces:wght@300;400&family=Baskervville&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .hero {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+        }
+
+        .hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(0,0,0,0.15) 0%,
+                rgba(0,0,0,0.0) 40%,
+                rgba(0,0,0,0.4) 100%
+            );
+        }
+
+        .hero-content {
+            position: fixed;
+            bottom: 3rem;
+            left: 2rem;
+            z-index: 10;
+            color: #fff;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 300;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 0.3rem;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            font-weight: 300;
+            opacity: 0.8;
+            letter-spacing: 0.05em;
+        }
+
+        .hero-enter {
+            position: fixed;
+            bottom: 3rem;
+            right: 2rem;
+            z-index: 10;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+            font-family: inherit;
+        }
+
+        .hero-enter:hover { opacity: 1; }
+
+        /* Override nav for hero page */
+        header { background: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; }
+        .logo { color: #fff; }
+        .nav-links a { color: #fff; }
+        .hamburger span { background: #fff; }
+        .story-progress .dot { background: rgba(255, 255, 255, 0.3); }
+        .story-progress .dot.active { background: rgba(255, 255, 255, 0.9); }
+        footer { display: none; }
+
+        @media (max-width: 768px) {
+            .hero-content { bottom: 5rem; left: 1.2rem; }
+            .hero-content h1 { font-size: 2rem; }
+            .hero-enter { bottom: 5rem; right: 1.2rem; }
+            .nav-links.open { background: rgba(0,0,0,0.95); }
+            .nav-links.open a { color: #fff; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <div class="logo-wrap" onclick="cycleStory()">
+            <div class="story-progress" id="storyProgress"></div>
+            <span class="logo">Matthis Kleeb</span>
+        </div>
+        <button class="hamburger" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="portfolio.html">Stories</a></li>
+            <li><a href="portraits.html">Portraits</a></li>
+            <li><a href="singles.html">Singles</a></li>
+            <li><a href="kontakt.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="hero">
+    <img id="heroImg" src="" alt="Matthis Kleeb">
+    <div class="hero-overlay"></div>
+</div>
+
+<div class="hero-content">
+    <h1>Matthis Kleeb</h1>
+    <p>Dokumentarfotograf &amp; fotojournalist</p>
+</div>
+
+<a href="portfolio.html" class="hero-enter">Se arbeidene →</a>
+
+<script>
+    // Bilde nr 1 fra hver historie — legg til nye her etter hvert
+    const stories = [
+        { img: 'bilder/50 dråper i havet/full/01.jpg', url: '50-draper.html' },
+        { img: 'bilder/From Trend to Trash/full/01.jpg', url: 'trend-to-trash.html' },
+        { img: 'bilder/Miljøpolitiet i Brasil/full/01.jpg', url: 'miljopolitiet.html' },
+    ];
+
+    let storyIndex = Math.floor(Math.random() * stories.length);
+
+    // Bygg progressbar
+    const progress = document.getElementById('storyProgress');
+    stories.forEach((_, i) => {
+        const dot = document.createElement('div');
+        dot.className = 'dot' + (i === storyIndex ? ' active' : '');
+        progress.appendChild(dot);
+    });
+    progress.style.width = (stories.length * 18) + 'px';
+
+    document.getElementById('heroImg').src = stories[storyIndex].img;
+
+    function cycleStory() {
+        storyIndex = (storyIndex + 1) % stories.length;
+        const img = document.getElementById('heroImg');
+        img.style.opacity = '0';
+        img.style.transition = 'opacity 0.3s';
+        setTimeout(() => {
+            img.src = stories[storyIndex].img;
+            img.onload = () => { img.style.opacity = '1'; };
+        }, 300);
+        document.querySelectorAll('.story-progress .dot').forEach((d, i) => {
+            d.className = 'dot' + (i === storyIndex ? ' active' : '');
+        });
+    }
+
+    function toggleMenu() {
+        document.getElementById('navLinks').classList.toggle('open');
+        document.querySelector('.hamburger').classList.toggle('open');
+    }
+</script>
+
+</body>
+</html>
