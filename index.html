@@ -174,5 +174,14 @@
     }
 </script>
 
+<script>
+    // Persist fullscreen across page navigation
+    if (sessionStorage.getItem("fullscreen") === "true" && !document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+    }
+    document.addEventListener("fullscreenchange", () => {
+        sessionStorage.setItem("fullscreen", !!document.fullscreenElement);
+    });
+    </script>
 </body>
 </html>
