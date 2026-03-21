@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt — Matthis Kleeb</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="index.html" class="logo-wrap"><div class="story-progress"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div><span class="logo">Matthis Kleeb</span></a>
+        <button class="hamburger" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="portfolio.html">Stories</a></li>
+            <li><a href="portraits.html">Portraits</a></li>
+            <li><a href="singles.html">Singles</a></li>
+            <li><a href="kontakt.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <div class="contact">
+        <h1>Kontakt</h1>
+        <p>For oppdrag, samarbeid eller spørsmål.</p>
+
+        <div class="contact-info">
+            <div class="contact-item">
+                <h2>E-post</h2>
+                <a href="mailto:matthis@eksempel.no">matthis@eksempel.no</a>
+            </div>
+            <div class="contact-item">
+                <h2>Instagram</h2>
+                <a href="https://instagram.com" target="_blank">@matthiskleeb</a>
+            </div>
+            <div class="contact-item">
+                <h2>Basert i</h2>
+                <p>Norge</p>
+            </div>
+        </div>
+
+        <p class="contact-note">
+            <em>Placeholder — oppdateres med ekte kontaktinfo.</em>
+        </p>
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2026 Matthis Kleeb. Alle rettigheter reservert.</p>
+    <p><a href="https://instagram.com">Instagram</a></p>
+</footer>
+
+<script>
+    function toggleMenu() {
+        document.getElementById('navLinks').classList.toggle('open');
+        document.querySelector('.hamburger').classList.toggle('open');
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miljøpolitiet i Brasil — Matthis Kleeb</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="index.html" class="logo-wrap"><div class="story-progress"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div><span class="logo">Matthis Kleeb</span></a>
+        <button class="hamburger" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="portfolio.html">Stories</a></li>
+            <li><a href="portraits.html">Portraits</a></li>
+            <li><a href="singles.html">Singles</a></li>
+            <li><a href="kontakt.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <div class="gallery">
+        <div class="gallery-item" onclick="openLightbox(0)"><img src="bilder/Miljøpolitiet i Brasil/web/01.jpg" alt="Miljøpolitiet i Brasil 1"></div>
+        <div class="gallery-item" onclick="openLightbox(1)"><img src="bilder/Miljøpolitiet i Brasil/web/02.jpg" alt="Miljøpolitiet i Brasil 2"></div>
+        <div class="gallery-item" onclick="openLightbox(2)"><img src="bilder/Miljøpolitiet i Brasil/web/03.jpg" alt="Miljøpolitiet i Brasil 3"></div>
+        <div class="gallery-item" onclick="openLightbox(3)"><img src="bilder/Miljøpolitiet i Brasil/web/04.jpg" alt="Miljøpolitiet i Brasil 4"></div>
+        <div class="gallery-item" onclick="openLightbox(4)"><img src="bilder/Miljøpolitiet i Brasil/web/05.jpg" alt="Miljøpolitiet i Brasil 5"></div>
+        <div class="gallery-item" onclick="openLightbox(5)"><img src="bilder/Miljøpolitiet i Brasil/web/06.jpg" alt="Miljøpolitiet i Brasil 6"></div>
+        <div class="gallery-item" onclick="openLightbox(6)"><img src="bilder/Miljøpolitiet i Brasil/web/07.jpg" alt="Miljøpolitiet i Brasil 7"></div>
+        <div class="gallery-item" onclick="openLightbox(7)"><img src="bilder/Miljøpolitiet i Brasil/web/08.jpg" alt="Miljøpolitiet i Brasil 8"></div>
+        <div class="gallery-item" onclick="openLightbox(8)"><img src="bilder/Miljøpolitiet i Brasil/web/09.jpg" alt="Miljøpolitiet i Brasil 9"></div>
+        <div class="gallery-item" onclick="openLightbox(9)"><img src="bilder/Miljøpolitiet i Brasil/web/10.jpg" alt="Miljøpolitiet i Brasil 10"></div>
+        <div class="gallery-item" onclick="openLightbox(10)"><img src="bilder/Miljøpolitiet i Brasil/web/11.jpg" alt="Miljøpolitiet i Brasil 11"></div>
+        <div class="gallery-item" onclick="openLightbox(11)"><img src="bilder/Miljøpolitiet i Brasil/web/12.jpg" alt="Miljøpolitiet i Brasil 12"></div>
+        <div class="gallery-item" onclick="openLightbox(12)"><img src="bilder/Miljøpolitiet i Brasil/web/13.jpg" alt="Miljøpolitiet i Brasil 13"></div>
+        <div class="gallery-item" onclick="openLightbox(13)"><img src="bilder/Miljøpolitiet i Brasil/web/14.jpg" alt="Miljøpolitiet i Brasil 14"></div>
+        <div class="gallery-item" onclick="openLightbox(14)"><img src="bilder/Miljøpolitiet i Brasil/web/15.jpg" alt="Miljøpolitiet i Brasil 15"></div>
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2026 Matthis Kleeb. Alle rettigheter reservert.</p>
+    <p><a href="https://instagram.com">Instagram</a></p>
+</footer>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+    <button class="lightbox-close" onclick="closeLightbox(event)">&times;</button>
+    <button class="lightbox-nav lightbox-prev" onclick="navigate(event, -1)">&#8249;</button>
+    <img id="lightboxImg" src="" alt="">
+    <button class="lightbox-nav lightbox-next" onclick="navigate(event, 1)">&#8250;</button>
+    <div class="lightbox-counter" id="lightboxCounter"></div>
+</div>
+
+<script>
+    const images = document.querySelectorAll('.gallery-item img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const counter = document.getElementById('lightboxCounter');
+    let currentIndex = 0;
+
+    function openLightbox(index) {
+        currentIndex = index;
+        updateLightbox();
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox(e) {
+        if (e.target === lightbox || e.target.classList.contains('lightbox-close')) {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    }
+
+    function navigate(e, dir) {
+        e.stopPropagation();
+        currentIndex = (currentIndex + dir + images.length) % images.length;
+        updateLightbox();
+    }
+
+    function updateLightbox() {
+        const src = images[currentIndex].src.replace('/web/', '/full/');
+        lightboxImg.src = src;
+        counter.textContent = (currentIndex + 1) + ' / ' + images.length;
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('active')) return;
+        if (e.key === 'Escape') { lightbox.classList.remove('active'); document.body.style.overflow = ''; }
+        if (e.key === 'ArrowRight') { currentIndex = (currentIndex + 1) % images.length; updateLightbox(); }
+        if (e.key === 'ArrowLeft') { currentIndex = (currentIndex - 1 + images.length) % images.length; updateLightbox(); }
+    });
+
+    function toggleMenu() {
+        document.getElementById('navLinks').classList.toggle('open');
+        document.querySelector('.hamburger').classList.toggle('open');
+    }
+</script>
+
+</body>
+</html>
