@@ -123,6 +123,13 @@
     });
 
     function toggleFullscreen() {
+        document.body.classList.toggle("immersive");
+        sessionStorage.setItem("immersive", document.body.classList.contains("immersive"));
+        if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen().catch(() => {});
+        } else if (document.body.classList.contains("immersive") === false) {
+            document.exitFullscreen().catch(() => {});
+        }
         if (!document.fullscreenElement) {
             document.documentElement.requestFullscreen();
         } else {
@@ -137,13 +144,6 @@
 </script>
 
 <script>
-    // Persist fullscreen across page navigation
-    if (sessionStorage.getItem("fullscreen") === "true" && !document.fullscreenElement) {
-        document.documentElement.requestFullscreen().catch(() => {});
-    }
-    document.addEventListener("fullscreenchange", () => {
-        sessionStorage.setItem("fullscreen", !!document.fullscreenElement);
-    });
-    </script>
+<script>if(sessionStorage.getItem("immersive")==="true")document.body.classList.add("immersive");</script>
 </body>
 </html>

@@ -91,7 +91,7 @@ nav {
 .nav-links a:hover { opacity: 0.5; }
 .nav-links a.active { font-weight: 400; }
 
-/* --- FULLSCREEN --- */
+/* --- IMMERSIVE MODE --- */
 .fullscreen-btn {
     background: none;
     border: none;
@@ -105,6 +105,19 @@ nav {
 }
 
 .fullscreen-btn:hover { opacity: 0.8; }
+
+body.immersive header {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+body.immersive header:hover {
+    opacity: 1;
+}
+
+body.immersive footer {
+    display: none;
+}
 
 /* --- HAMBURGER --- */
 .hamburger {
