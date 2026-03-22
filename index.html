@@ -7,7 +7,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Matthis Kleeb — Fotograf</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Pinyon+Script&family=Great+Vibes&family=Italiana&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
         html { height: 100%; }
@@ -64,6 +64,28 @@
             letter-spacing: 0.08em;
             text-transform: uppercase;
             margin-bottom: 0.3rem;
+            transition: all 0.4s;
+        }
+
+        .hero-content h1.signature {
+            font-family: 'Pinyon Script', cursive;
+            text-transform: none;
+            letter-spacing: 0.02em;
+            font-size: 3.5rem;
+        }
+
+        .hero-content h1.vibes {
+            font-family: 'Great Vibes', cursive;
+            text-transform: none;
+            letter-spacing: 0.02em;
+            font-size: 3.5rem;
+        }
+
+        .hero-content h1.italiana {
+            font-family: 'Italiana', serif;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-size: 2.8rem;
         }
 
         .hero-enter {
@@ -118,6 +140,9 @@
         @media (max-width: 768px) {
             .hero-content { bottom: calc(3rem + env(safe-area-inset-bottom, 0px)); left: 1.2rem; }
             .hero-content h1 { font-size: 1.8rem; }
+            .hero-content h1.signature,
+            .hero-content h1.vibes { font-size: 2.5rem; }
+            .hero-content h1.italiana { font-size: 1.6rem; }
             .hero-enter { bottom: calc(3rem + env(safe-area-inset-bottom, 0px)); right: 1.2rem; font-size: 0.9rem; }
             .ab-toggle { bottom: calc(1rem + env(safe-area-inset-bottom, 0px)); font-size: 0.7rem; }
             /* Mobile menu: white/frosted */
@@ -208,9 +233,31 @@
         });
     }
 
-    // A/B toggle for name
+    // A/B/C toggle for name styles
+    const nameStyles = [
+        { cls: '', label: 'A: Uppercase' },
+        { cls: 'signature', label: 'B: Signature' },
+        { cls: 'vibes', label: 'C: Flowing' },
+        { cls: 'italiana', label: 'D: Editorial' },
+        { cls: 'hidden', label: 'E: Hidden' },
+    ];
+    let nameIndex = 0;
+
     function toggleName() {
-        document.getElementById('heroContent').classList.toggle('hidden');
+        const h1 = document.querySelector('.hero-content h1');
+        const content = document.getElementById('heroContent');
+        // Remove all style classes
+        h1.className = '';
+        content.classList.remove('hidden');
+        // Advance
+        nameIndex = (nameIndex + 1) % nameStyles.length;
+        const style = nameStyles[nameIndex];
+        if (style.cls === 'hidden') {
+            content.classList.add('hidden');
+        } else if (style.cls) {
+            h1.classList.add(style.cls);
+        }
+        document.querySelector('.ab-toggle').textContent = style.label;
     }
 
     // Nudge Safari to hide URL bar on load
