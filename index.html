@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="style.css">
     <style>
         html { height: 100%; }
-        body { height: 100%; overflow: hidden; }
+        body { height: calc(100vh + 1px); height: calc(100dvh + 1px); }
 
         .hero {
             position: fixed;
@@ -212,6 +212,9 @@
     function toggleName() {
         document.getElementById('heroContent').classList.toggle('hidden');
     }
+
+    // Nudge Safari to hide URL bar on load
+    setTimeout(() => window.scrollTo(0, 1), 300);
 
     // Tap anywhere on mobile to cycle
     if ('ontouchstart' in window) {
