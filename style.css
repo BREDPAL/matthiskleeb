@@ -6,6 +6,11 @@
 
 html {
     height: 100%;
+    scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
 
 body {
