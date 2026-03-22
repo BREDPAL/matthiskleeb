@@ -43,7 +43,7 @@ nav {
 .nav-right {
     display: flex;
     align-items: center;
-    gap: 2.5rem;
+    gap: 2rem;
 }
 
 .logo-wrap {
@@ -402,8 +402,7 @@ footer a:hover { color: #1a1a1a; }
         font-size: 1.6rem;
         color: #1a1a1a;
     }
-    .hamburger { display: block; z-index: 100; }
-    .nav-right { gap: 1.5rem; }
+    .hamburger { display: block; z-index: 100; order: 1; }
 
     .gallery { grid-template-columns: 1fr; gap: 0.5rem; }
     .portfolio-grid { grid-template-columns: 1fr; gap: 1rem; }
