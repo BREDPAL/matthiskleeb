@@ -2,10 +2,10 @@
 <html lang="no">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Matthis Kleeb — Fotograf</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Playfair+Display:wght@300;400;500&family=Libre+Baskerville:wght@400;700&family=EB+Garamond:wght@400;500&family=Lora:wght@400;500&family=Crimson+Pro:wght@300;400&family=DM+Serif+Display&family=Sorts+Mill+Goudy&family=Bodoni+Moda:wght@400;500&family=Instrument+Serif&family=Fraunces:wght@300;400&family=Baskervville&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
         .hero {
@@ -25,9 +25,9 @@
             inset: 0;
             background: linear-gradient(
                 to bottom,
-                rgba(0,0,0,0.15) 0%,
-                rgba(0,0,0,0.0) 40%,
-                rgba(0,0,0,0.4) 100%
+                rgba(0,0,0,0.12) 0%,
+                rgba(0,0,0,0.0) 35%,
+                rgba(0,0,0,0.35) 100%
             );
         }
 
@@ -37,7 +37,10 @@
             left: 2rem;
             z-index: 10;
             color: #fff;
+            transition: opacity 0.4s;
         }
+
+        .hero-content.hidden { opacity: 0; pointer-events: none; }
 
         .hero-content h1 {
             font-size: 3rem;
@@ -45,13 +48,6 @@
             letter-spacing: 0.08em;
             text-transform: uppercase;
             margin-bottom: 0.3rem;
-        }
-
-        .hero-content p {
-            font-size: 1.1rem;
-            font-weight: 300;
-            opacity: 0.8;
-            letter-spacing: 0.05em;
         }
 
         .hero-enter {
@@ -71,6 +67,28 @@
 
         .hero-enter:hover { opacity: 1; }
 
+        /* A/B toggle */
+        .ab-toggle {
+            position: fixed;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: #fff;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-family: inherit;
+            font-size: 0.8rem;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            opacity: 0.5;
+            transition: opacity 0.2s;
+        }
+        .ab-toggle:hover { opacity: 1; }
+
         /* Override nav for hero page */
         header { background: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; }
         .logo { color: #fff; }
@@ -83,10 +101,17 @@
 
         @media (max-width: 768px) {
             .hero-content { bottom: 5rem; left: 1.2rem; }
-            .hero-content h1 { font-size: 2rem; }
-            .hero-enter { bottom: 5rem; right: 1.2rem; }
-            .nav-links.open { background: rgba(0,0,0,0.95); }
-            .nav-links.open a { color: #fff; }
+            .hero-content h1 { font-size: 1.8rem; }
+            .hero-enter { bottom: 5rem; right: 1.2rem; font-size: 0.9rem; }
+            .ab-toggle { bottom: 1.5rem; font-size: 0.7rem; }
+            /* Mobile menu: white/frosted */
+            .nav-links.open {
+                background: rgba(255, 255, 255, 0.98) !important;
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+            }
+            .nav-links.open a { color: #1a1a1a !important; }
+            .hamburger.open span { background: #1a1a1a; }
         }
     </style>
 </head>
@@ -118,17 +143,18 @@
     <div class="hero-overlay"></div>
 </div>
 
-<div class="hero-content">
+<div class="hero-content" id="heroContent">
     <h1>Matthis Kleeb</h1>
 </div>
 
 <a href="portfolio.html" class="hero-enter">Se arbeidene →</a>
 
+<button class="ab-toggle" onclick="toggleName()">A / B</button>
+
 <script>
-    // Bilde nr 1 fra hver historie — legg til nye her etter hvert
     const stories = [
         { img: 'bilder/Stories/50 draper i havet/full/01.jpg', url: '50-draper.html' },
-        { img: "bilder/Stories/Africas Last Colony/full/Cewe-photoworld_Matthis_Kleeb_01.jpg", url: 'africas-last-colony.html' },
+        { img: 'bilder/Stories/Africas Last Colony/full/Cewe-photoworld_Matthis_Kleeb_01.jpg', url: 'africas-last-colony.html' },
         { img: 'bilder/Stories/From Trend to Trash/full/01.jpg', url: 'trend-to-trash.html' },
         { img: 'bilder/Stories/Homophobia in Tanzania/full/Materclass_NJP_15.jpg', url: 'homophobia-tanzania.html' },
         { img: 'bilder/Stories/Miljopolitiet i Brasil/full/01.jpg', url: 'miljopolitiet.html' },
@@ -136,7 +162,7 @@
 
     let storyIndex = Math.floor(Math.random() * stories.length);
 
-    // Bygg progressbar
+    // Progressbar
     const progress = document.getElementById('storyProgress');
     stories.forEach((_, i) => {
         const dot = document.createElement('div');
@@ -162,12 +188,16 @@
         });
     }
 
+    // A/B toggle for name
+    function toggleName() {
+        document.getElementById('heroContent').classList.toggle('hidden');
+    }
+
     document.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowRight') cycleStory(1);
         if (e.key === 'ArrowLeft') cycleStory(-1);
         if (e.key === 'Enter') window.location.href = stories[storyIndex].url;
     });
-
 </script>
 <script src="shared.js"></script>
 
