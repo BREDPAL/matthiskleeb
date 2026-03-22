@@ -9,16 +9,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
 <header>
     <nav>
         <a href="index.html" class="logo">Matthis Kleeb</a>
-            <span></span><span></span><span></span>
-        </button>
         <div class="nav-right">
-        <button class="hamburger" onclick="toggleMenu()">
-            <span></span><span></span><span></span>
-        </button>
+        <button class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
         <ul class="nav-links" id="navLinks">
             <li><a href="portfolio.html">Stories</a></li>
             <li><a href="portraits.html" class="active">Portraits</a></li>
@@ -28,7 +23,6 @@
         </div>
     </nav>
 </header>
-
 <main>
     <div class="gallery gallery-bw">
         <div class="gallery-item" onclick="openLightbox(0)"><img src="bilder/Portraits/web/01.jpg" alt="Portrait 1"></div>
@@ -36,7 +30,7 @@
         <div class="gallery-item" onclick="openLightbox(2)"><img src="bilder/Portraits/web/03.jpg" alt="Portrait 3"></div>
         <div class="gallery-item" onclick="openLightbox(3)"><img src="bilder/Portraits/web/04.jpg" alt="Portrait 4"></div>
         <div class="gallery-item" onclick="openLightbox(4)"><img src="bilder/Portraits/web/05.jpg" alt="Portrait 5"></div>
-        <div class="gallery-item" onclick="openLightbox(5)"><img src="bilder/Portraits/web/06.jpg.jpg" alt="Portrait 6"></div>
+        <div class="gallery-item" onclick="openLightbox(5)"><img src="bilder/Portraits/web/06.jpg" alt="Portrait 6"></div>
         <div class="gallery-item" onclick="openLightbox(6)"><img src="bilder/Portraits/web/07.jpg" alt="Portrait 7"></div>
         <div class="gallery-item" onclick="openLightbox(7)"><img src="bilder/Portraits/web/08.jpg" alt="Portrait 8"></div>
         <div class="gallery-item" onclick="openLightbox(8)"><img src="bilder/Portraits/web/09.jpg" alt="Portrait 9"></div>
@@ -47,14 +41,12 @@
         <div class="gallery-item" onclick="openLightbox(13)"><img src="bilder/Portraits/web/14.jpg" alt="Portrait 14"></div>
         <div class="gallery-item" onclick="openLightbox(14)"><img src="bilder/Portraits/web/15.jpg" alt="Portrait 15"></div>
         <div class="gallery-item" onclick="openLightbox(15)"><img src="bilder/Portraits/web/16.jpg" alt="Portrait 16"></div>
+        <div class="gallery-item" onclick="openLightbox(16)"><img src="bilder/Portraits/web/17.jpg" alt="Portrait 17"></div>
+        <div class="gallery-item" onclick="openLightbox(17)"><img src="bilder/Portraits/web/18.jpg" alt="Portrait 18"></div>
+        <div class="gallery-item" onclick="openLightbox(18)"><img src="bilder/Portraits/web/19.jpg" alt="Portrait 19"></div>
     </div>
 </main>
-
-<footer>
-    <p>&copy; 2026 Matthis Kleeb. Alle rettigheter reservert.</p>
-    <p><a href="https://instagram.com">Instagram</a></p>
-</footer>
-
+<footer><p>&copy; 2026 Matthis Kleeb.</p></footer>
 <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
     <div class="lightbox-top">
         <button class="lightbox-fullscreen" onclick="toggleFullscreen(event)" title="Fullskjerm">&#x26F6;</button>
@@ -65,9 +57,7 @@
     <button class="lightbox-nav lightbox-next" onclick="navigate(event, 1)">&#8250;</button>
     <div class="lightbox-counter" id="lightboxCounter"></div>
 </div>
-
 <script src="gallery.js"></script>
 <script src="shared.js"></script>
-
 </body>
 </html>

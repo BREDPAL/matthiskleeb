@@ -9,12 +9,9 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
 <header>
     <nav>
         <a href="index.html" class="logo">Matthis Kleeb</a>
-            <span></span><span></span><span></span>
-        </button>
         <div class="nav-right">
         <button class="hamburger" onclick="toggleMenu()">
             <span></span><span></span><span></span>
@@ -28,7 +25,6 @@
         </div>
     </nav>
 </header>
-
 <main>
     <div class="gallery">
         <div class="gallery-item" onclick="openLightbox(0)"><img src="bilder/Stories/From Trend to Trash/web/01.jpg" alt="From Trend to Trash 1"></div>
@@ -70,12 +66,10 @@
         <div class="gallery-item" onclick="openLightbox(36)"><img src="bilder/Stories/From Trend to Trash/web/37.jpg" alt="From Trend to Trash 37"></div>
     </div>
 </main>
-
 <footer>
     <p>&copy; 2026 Matthis Kleeb. Alle rettigheter reservert.</p>
     <p><a href="https://instagram.com">Instagram</a></p>
 </footer>
-
 <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
     <div class="lightbox-top">
         <button class="lightbox-fullscreen" onclick="toggleFullscreen(event)" title="Fullskjerm">&#x26F6;</button>
@@ -86,9 +80,7 @@
     <button class="lightbox-nav lightbox-next" onclick="navigate(event, 1)">&#8250;</button>
     <div class="lightbox-counter" id="lightboxCounter"></div>
 </div>
-
 <script src="gallery.js"></script>
 <script src="shared.js"></script>
-
 </body>
 </html>
