@@ -138,7 +138,7 @@
     </nav>
 </header>
 
-<div class="hero">
+<div class="hero" id="heroArea">
     <img id="heroImg" src="" alt="Matthis Kleeb">
     <div class="hero-overlay"></div>
 </div>
@@ -195,6 +195,14 @@
     // A/B toggle for name
     function toggleName() {
         document.getElementById('heroContent').classList.toggle('hidden');
+    }
+
+    // Tap anywhere on mobile to cycle
+    if ('ontouchstart' in window) {
+        document.getElementById('heroArea').addEventListener('click', (e) => {
+            if (e.target.closest('a, button, nav')) return;
+            cycleStory(1);
+        });
     }
 
     document.addEventListener('keydown', (e) => {
