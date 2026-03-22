@@ -163,6 +163,17 @@ main {
 
 .gallery-item:hover img { opacity: 0.85; }
 
+/* B&W thumbnails — full color in lightbox */
+.gallery-bw .gallery-item img {
+    filter: grayscale(100%);
+    transition: filter 0.4s, opacity 0.3s;
+}
+
+.gallery-bw .gallery-item:hover img {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
 /* --- LIGHTBOX --- */
 .lightbox {
     display: none;

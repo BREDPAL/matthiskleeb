@@ -7,7 +7,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Matthis Kleeb — Fotograf</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Playfair+Display:wght@400;500;700&family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=DM+Serif+Display&family=Cinzel:wght@400;500&family=Cormorant:ital,wght@1,300;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
         html { height: 100%; }
@@ -64,53 +64,7 @@
             letter-spacing: 0.08em;
             text-transform: uppercase;
             margin-bottom: 0.3rem;
-            transition: all 0.4s;
-        }
-
-        /* Playfair — high contrast editorial like Vogue */
-        .hero-content h1.playfair {
-            font-family: 'Playfair Display', serif;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            font-weight: 400;
-            font-size: 3.2rem;
-        }
-
-        /* Bodoni — Valentino/Armani territory */
-        .hero-content h1.bodoni {
-            font-family: 'Bodoni Moda', serif;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            font-weight: 400;
-            font-size: 3rem;
-        }
-
-        /* DM Serif — warm, refined, gallery feel */
-        .hero-content h1.dmserif {
-            font-family: 'DM Serif Display', serif;
-            text-transform: none;
-            letter-spacing: 0.03em;
-            font-weight: 400;
-            font-size: 3.2rem;
-        }
-
-        /* Cinzel — fine art, museum, timeless */
-        .hero-content h1.cinzel {
-            font-family: 'Cinzel', serif;
-            text-transform: uppercase;
-            letter-spacing: 0.18em;
-            font-weight: 400;
-            font-size: 2.6rem;
-        }
-
-        /* Cormorant Italic — effortless elegance */
-        .hero-content h1.cormorant-italic {
-            font-family: 'Cormorant', serif;
-            font-style: italic;
-            text-transform: none;
-            letter-spacing: 0.04em;
-            font-weight: 300;
-            font-size: 3.5rem;
+            transition: opacity 0.4s;
         }
 
         .hero-enter {
@@ -165,11 +119,6 @@
         @media (max-width: 768px) {
             .hero-content { bottom: calc(3rem + env(safe-area-inset-bottom, 0px)); left: 1.2rem; }
             .hero-content h1 { font-size: 1.8rem; }
-            .hero-content h1.playfair { font-size: 2rem; }
-            .hero-content h1.bodoni { font-size: 1.8rem; }
-            .hero-content h1.dmserif { font-size: 2rem; }
-            .hero-content h1.cinzel { font-size: 1.6rem; }
-            .hero-content h1.cormorant-italic { font-size: 2.2rem; }
             .hero-enter { bottom: calc(3rem + env(safe-area-inset-bottom, 0px)); right: 1.2rem; font-size: 0.9rem; }
             .ab-toggle { bottom: calc(1rem + env(safe-area-inset-bottom, 0px)); font-size: 0.7rem; }
             /* Mobile menu: white/frosted */
@@ -260,33 +209,9 @@
         });
     }
 
-    // A/B/C toggle for name styles
-    const nameStyles = [
-        { cls: '', label: 'A: Cormorant' },
-        { cls: 'playfair', label: 'B: Playfair' },
-        { cls: 'bodoni', label: 'C: Bodoni' },
-        { cls: 'dmserif', label: 'D: DM Serif' },
-        { cls: 'cinzel', label: 'E: Cinzel' },
-        { cls: 'cormorant-italic', label: 'F: Cormorant Italic' },
-        { cls: 'hidden', label: 'G: Hidden' },
-    ];
-    let nameIndex = 0;
-
+    // A/B toggle for name
     function toggleName() {
-        const h1 = document.querySelector('.hero-content h1');
-        const content = document.getElementById('heroContent');
-        // Remove all style classes
-        h1.className = '';
-        content.classList.remove('hidden');
-        // Advance
-        nameIndex = (nameIndex + 1) % nameStyles.length;
-        const style = nameStyles[nameIndex];
-        if (style.cls === 'hidden') {
-            content.classList.add('hidden');
-        } else if (style.cls) {
-            h1.classList.add(style.cls);
-        }
-        document.querySelector('.ab-toggle').textContent = style.label;
+        document.getElementById('heroContent').classList.toggle('hidden');
     }
 
     // Nudge Safari to hide URL bar on load
