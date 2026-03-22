@@ -2,16 +2,32 @@
 <html lang="no">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Matthis Kleeb — Fotograf</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
+        html { height: 100%; }
+        body { height: 100%; overflow: hidden; }
+
         .hero {
             position: fixed;
-            inset: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             z-index: 0;
+            /* Extend behind Safari safe areas */
+            top: env(safe-area-inset-top, 0);
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            height: 100vh;
+            height: 100dvh;
         }
 
         .hero img {
@@ -100,10 +116,10 @@
         footer { display: none; }
 
         @media (max-width: 768px) {
-            .hero-content { bottom: 5rem; left: 1.2rem; }
+            .hero-content { bottom: calc(3rem + env(safe-area-inset-bottom, 0px)); left: 1.2rem; }
             .hero-content h1 { font-size: 1.8rem; }
-            .hero-enter { bottom: 5rem; right: 1.2rem; font-size: 0.9rem; }
-            .ab-toggle { bottom: 1.5rem; font-size: 0.7rem; }
+            .hero-enter { bottom: calc(3rem + env(safe-area-inset-bottom, 0px)); right: 1.2rem; font-size: 0.9rem; }
+            .ab-toggle { bottom: calc(1rem + env(safe-area-inset-bottom, 0px)); font-size: 0.7rem; }
             /* Mobile menu: white/frosted */
             .nav-links.open {
                 background: rgba(255, 255, 255, 0.98) !important;
