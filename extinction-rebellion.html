@@ -9,36 +9,31 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-    <nav>
-        <a href="index.html" class="logo">Matthis Kleeb</a>
-        <div class="nav-right">
-        <button class="hamburger" onclick="toggleMenu()">
-            <span></span><span></span><span></span>
-        </button>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="portfolio.html" class="active">Stories</a></li>
-            <li><a href="portraits.html">Portraits</a></li>
-            <li><a href="singles.html">Singles</a></li>
-            <li><a href="kontakt.html">Contact</a></li>
-        </ul>
-        </div>
-    </nav>
-</header>
-<main>
-    <div class="gallery">
+<header><nav>
+    <a href="index.html" class="logo">Matthis Kleeb</a>
+    <div class="nav-right">
+    <button class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="portfolio.html" class="active">Stories</a></li>
+        <li><a href="portraits.html">Portraits</a></li>
+        <li><a href="singles.html">Singles</a></li>
+        <li><a href="kontakt.html">Contact</a></li>
+    </ul></div>
+</nav></header>
+<main><div class="gallery">
         <div class="gallery-item" onclick="openLightbox(0)"><img src="bilder/Stories/Extinction Rebellion/web/01.jpg" alt="Extinction Rebellion 1"></div>
-        <div class="gallery-item" onclick="openLightbox(1)"><img src="bilder/Stories/Extinction Rebellion/web/03.jpg" alt="Extinction Rebellion 2"></div>
-        <div class="gallery-item" onclick="openLightbox(2)"><img src="bilder/Stories/Extinction Rebellion/web/05.jpg" alt="Extinction Rebellion 3"></div>
-        <div class="gallery-item" onclick="openLightbox(3)"><img src="bilder/Stories/Extinction Rebellion/web/07.jpg" alt="Extinction Rebellion 4"></div>
-        <div class="gallery-item" onclick="openLightbox(4)"><img src="bilder/Stories/Extinction Rebellion/web/09.jpg" alt="Extinction Rebellion 5"></div>
-        <div class="gallery-item" onclick="openLightbox(5)"><img src="bilder/Stories/Extinction Rebellion/web/11.jpg" alt="Extinction Rebellion 6"></div>
-    </div>
-</main>
-<footer>
-    <p>&copy; 2026 Matthis Kleeb. Alle rettigheter reservert.</p>
-    <p><a href="https://instagram.com">Instagram</a></p>
-</footer>
+        <div class="gallery-item" onclick="openLightbox(1)"><img src="bilder/Stories/Extinction Rebellion/web/02.jpg" alt="Extinction Rebellion 2"></div>
+        <div class="gallery-item" onclick="openLightbox(2)"><img src="bilder/Stories/Extinction Rebellion/web/03.jpg" alt="Extinction Rebellion 3"></div>
+        <div class="gallery-item" onclick="openLightbox(3)"><img src="bilder/Stories/Extinction Rebellion/web/04.jpg" alt="Extinction Rebellion 4"></div>
+        <div class="gallery-item" onclick="openLightbox(4)"><img src="bilder/Stories/Extinction Rebellion/web/05.jpg" alt="Extinction Rebellion 5"></div>
+        <div class="gallery-item" onclick="openLightbox(5)"><img src="bilder/Stories/Extinction Rebellion/web/06.jpg" alt="Extinction Rebellion 6"></div>
+        <div class="gallery-item" onclick="openLightbox(6)"><img src="bilder/Stories/Extinction Rebellion/web/07.jpg" alt="Extinction Rebellion 7"></div>
+        <div class="gallery-item" onclick="openLightbox(7)"><img src="bilder/Stories/Extinction Rebellion/web/08.jpg" alt="Extinction Rebellion 8"></div>
+        <div class="gallery-item" onclick="openLightbox(8)"><img src="bilder/Stories/Extinction Rebellion/web/09.jpg" alt="Extinction Rebellion 9"></div>
+        <div class="gallery-item" onclick="openLightbox(9)"><img src="bilder/Stories/Extinction Rebellion/web/10.jpg" alt="Extinction Rebellion 10"></div>
+        <div class="gallery-item" onclick="openLightbox(10)"><img src="bilder/Stories/Extinction Rebellion/web/11.jpg" alt="Extinction Rebellion 11"></div>
+</div></main>
+<footer><p>&copy; 2026 Matthis Kleeb.</p></footer>
 <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
     <div class="lightbox-top">
         <button class="lightbox-fullscreen" onclick="toggleFullscreen(event)" title="Fullskjerm">&#x26F6;</button>
@@ -51,5 +46,4 @@
 </div>
 <script src="gallery.js"></script>
 <script src="shared.js"></script>
-</body>
-</html>
+</body></html>

@@ -9,40 +9,39 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-    <nav>
-        <a href="index.html" class="logo">Matthis Kleeb</a>
-        <div class="nav-right">
-        <button class="hamburger" onclick="toggleMenu()">
-            <span></span><span></span><span></span>
-        </button>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="portfolio.html" class="active">Stories</a></li>
-            <li><a href="portraits.html">Portraits</a></li>
-            <li><a href="singles.html">Singles</a></li>
-            <li><a href="kontakt.html">Contact</a></li>
-        </ul>
-        </div>
-    </nav>
-</header>
-<main>
-    <div class="gallery">
+<header><nav>
+    <a href="index.html" class="logo">Matthis Kleeb</a>
+    <div class="nav-right">
+    <button class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="portfolio.html" class="active">Stories</a></li>
+        <li><a href="portraits.html">Portraits</a></li>
+        <li><a href="singles.html">Singles</a></li>
+        <li><a href="kontakt.html">Contact</a></li>
+    </ul></div>
+</nav></header>
+<main><div class="gallery">
         <div class="gallery-item" onclick="openLightbox(0)"><img src="bilder/Stories/Russians in Argentina/web/01.jpg" alt="Russians in Argentina 1"></div>
-        <div class="gallery-item" onclick="openLightbox(1)"><img src="bilder/Stories/Russians in Argentina/web/03.jpg" alt="Russians in Argentina 2"></div>
-        <div class="gallery-item" onclick="openLightbox(2)"><img src="bilder/Stories/Russians in Argentina/web/05.jpg" alt="Russians in Argentina 3"></div>
-        <div class="gallery-item" onclick="openLightbox(3)"><img src="bilder/Stories/Russians in Argentina/web/07.jpg" alt="Russians in Argentina 4"></div>
-        <div class="gallery-item" onclick="openLightbox(4)"><img src="bilder/Stories/Russians in Argentina/web/09.jpg" alt="Russians in Argentina 5"></div>
-        <div class="gallery-item" onclick="openLightbox(5)"><img src="bilder/Stories/Russians in Argentina/web/11.jpg" alt="Russians in Argentina 6"></div>
-        <div class="gallery-item" onclick="openLightbox(6)"><img src="bilder/Stories/Russians in Argentina/web/13.jpg" alt="Russians in Argentina 7"></div>
-        <div class="gallery-item" onclick="openLightbox(7)"><img src="bilder/Stories/Russians in Argentina/web/15.jpg" alt="Russians in Argentina 8"></div>
-        <div class="gallery-item" onclick="openLightbox(8)"><img src="bilder/Stories/Russians in Argentina/web/17.jpg" alt="Russians in Argentina 9"></div>
-        <div class="gallery-item" onclick="openLightbox(9)"><img src="bilder/Stories/Russians in Argentina/web/19.jpg" alt="Russians in Argentina 10"></div>
-    </div>
-</main>
-<footer>
-    <p>&copy; 2026 Matthis Kleeb. Alle rettigheter reservert.</p>
-    <p><a href="https://instagram.com">Instagram</a></p>
-</footer>
+        <div class="gallery-item" onclick="openLightbox(1)"><img src="bilder/Stories/Russians in Argentina/web/02.jpg" alt="Russians in Argentina 2"></div>
+        <div class="gallery-item" onclick="openLightbox(2)"><img src="bilder/Stories/Russians in Argentina/web/03.jpg" alt="Russians in Argentina 3"></div>
+        <div class="gallery-item" onclick="openLightbox(3)"><img src="bilder/Stories/Russians in Argentina/web/04.jpg" alt="Russians in Argentina 4"></div>
+        <div class="gallery-item" onclick="openLightbox(4)"><img src="bilder/Stories/Russians in Argentina/web/05.jpg" alt="Russians in Argentina 5"></div>
+        <div class="gallery-item" onclick="openLightbox(5)"><img src="bilder/Stories/Russians in Argentina/web/06.jpg" alt="Russians in Argentina 6"></div>
+        <div class="gallery-item" onclick="openLightbox(6)"><img src="bilder/Stories/Russians in Argentina/web/07.jpg" alt="Russians in Argentina 7"></div>
+        <div class="gallery-item" onclick="openLightbox(7)"><img src="bilder/Stories/Russians in Argentina/web/08.jpg" alt="Russians in Argentina 8"></div>
+        <div class="gallery-item" onclick="openLightbox(8)"><img src="bilder/Stories/Russians in Argentina/web/09.jpg" alt="Russians in Argentina 9"></div>
+        <div class="gallery-item" onclick="openLightbox(9)"><img src="bilder/Stories/Russians in Argentina/web/10.jpg" alt="Russians in Argentina 10"></div>
+        <div class="gallery-item" onclick="openLightbox(10)"><img src="bilder/Stories/Russians in Argentina/web/11.jpg" alt="Russians in Argentina 11"></div>
+        <div class="gallery-item" onclick="openLightbox(11)"><img src="bilder/Stories/Russians in Argentina/web/12.jpg" alt="Russians in Argentina 12"></div>
+        <div class="gallery-item" onclick="openLightbox(12)"><img src="bilder/Stories/Russians in Argentina/web/13.jpg" alt="Russians in Argentina 13"></div>
+        <div class="gallery-item" onclick="openLightbox(13)"><img src="bilder/Stories/Russians in Argentina/web/14.jpg" alt="Russians in Argentina 14"></div>
+        <div class="gallery-item" onclick="openLightbox(14)"><img src="bilder/Stories/Russians in Argentina/web/15.jpg" alt="Russians in Argentina 15"></div>
+        <div class="gallery-item" onclick="openLightbox(15)"><img src="bilder/Stories/Russians in Argentina/web/16.jpg" alt="Russians in Argentina 16"></div>
+        <div class="gallery-item" onclick="openLightbox(16)"><img src="bilder/Stories/Russians in Argentina/web/17.jpg" alt="Russians in Argentina 17"></div>
+        <div class="gallery-item" onclick="openLightbox(17)"><img src="bilder/Stories/Russians in Argentina/web/18.jpg" alt="Russians in Argentina 18"></div>
+        <div class="gallery-item" onclick="openLightbox(18)"><img src="bilder/Stories/Russians in Argentina/web/19.jpg" alt="Russians in Argentina 19"></div>
+</div></main>
+<footer><p>&copy; 2026 Matthis Kleeb.</p></footer>
 <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
     <div class="lightbox-top">
         <button class="lightbox-fullscreen" onclick="toggleFullscreen(event)" title="Fullskjerm">&#x26F6;</button>
@@ -55,5 +54,4 @@
 </div>
 <script src="gallery.js"></script>
 <script src="shared.js"></script>
-</body>
-</html>
+</body></html>
