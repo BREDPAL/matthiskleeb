@@ -47,30 +47,11 @@
             );
         }
 
-        .hero-content {
-            position: fixed;
-            bottom: 3rem;
-            left: 2rem;
-            z-index: 10;
-            color: #fff;
-            transition: opacity 0.4s;
-        }
-
-        .hero-content.hidden { opacity: 0; pointer-events: none; }
-
-        .hero-content h1 {
-            font-size: 3rem;
-            font-weight: 300;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            margin-bottom: 0.3rem;
-            transition: opacity 0.4s;
-        }
-
         .hero-enter {
             position: fixed;
             bottom: 3rem;
-            right: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
             z-index: 10;
             color: #fff;
             text-decoration: none;
@@ -84,28 +65,6 @@
 
         .hero-enter:hover { opacity: 1; }
 
-        /* A/B toggle */
-        .ab-toggle {
-            position: fixed;
-            bottom: 3rem;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 10;
-            background: rgba(255,255,255,0.15);
-            border: 1px solid rgba(255,255,255,0.3);
-            color: #fff;
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-family: inherit;
-            font-size: 0.8rem;
-            font-weight: 300;
-            letter-spacing: 0.05em;
-            cursor: pointer;
-            opacity: 0.5;
-            transition: opacity 0.2s;
-        }
-        .ab-toggle:hover { opacity: 1; }
-
         /* Override nav for hero page */
         header { background: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; }
         .logo { color: #fff; }
@@ -117,10 +76,7 @@
         footer { display: none; }
 
         @media (max-width: 768px) {
-            .hero-content { bottom: calc(3rem + env(safe-area-inset-bottom, 0px)); left: 1.2rem; }
-            .hero-content h1 { font-size: 1.8rem; }
-            .hero-enter { bottom: calc(3rem + env(safe-area-inset-bottom, 0px)); right: 1.2rem; font-size: 0.9rem; }
-            .ab-toggle { bottom: calc(1rem + env(safe-area-inset-bottom, 0px)); font-size: 0.7rem; }
+            .hero-enter { bottom: calc(3rem + env(safe-area-inset-bottom, 0px)); font-size: 0.9rem; }
             /* Mobile menu: white/frosted */
             .nav-links.open {
                 background: rgba(255, 255, 255, 0.98) !important;
@@ -160,13 +116,7 @@
     <div class="hero-overlay"></div>
 </div>
 
-<div class="hero-content" id="heroContent">
-    <h1>Matthis Kleeb</h1>
-</div>
-
 <a href="portfolio.html" class="hero-enter">Explore the work →</a>
-
-<button class="ab-toggle" onclick="toggleName()">A / B</button>
 
 <script>
     const stories = [
@@ -207,11 +157,6 @@
         document.querySelectorAll('.story-progress .dot').forEach((d, i) => {
             d.className = 'dot' + (i === storyIndex ? ' active' : '');
         });
-    }
-
-    // A/B toggle for name
-    function toggleName() {
-        document.getElementById('heroContent').classList.toggle('hidden');
     }
 
     // Nudge Safari to hide URL bar on load
